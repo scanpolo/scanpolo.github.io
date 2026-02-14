@@ -1,1 +1,48 @@
-<hl>Welcome</hl>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年电子贺卡</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="hearts"></div>
+
+    <div id="start-screen" class="screen">
+        <img src="背景/背景图片.jpg" alt="背景图片" class="start-background">
+        <div class="start-button" onclick="startGame()">开始</div>
+    </div>
+
+    <div id="home-screen" class="screen hidden">
+        <div class="home-container">
+            <h1 class="home-title">✨ 新年幸运抽奖 ✨</h1>
+            
+            <div class="lottery-info">
+                还剩 <span id="remain-count">3</span> 次抽奖机会
+            </div>
+
+            <div class="lottery-btn-container">
+                <button id="draw-btn" class="draw-button" onclick="drawCard()">
+                    🎁 点击开启好运
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="card-screen" class="screen hidden">
+        <div class="card-container">
+            <img id="card-image" src="" alt="贺卡图片">
+            <div class="card-note" id="card-note"></div>
+            <div class="card-buttons">
+                <button class="card-button" onclick="backToHome()">收下啦</button>
+                <button class="card-button" onclick="downloadCard()">好好珍藏</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audio" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

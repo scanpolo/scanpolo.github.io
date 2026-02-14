@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fce4ec;
+    overflow: hidden;
+}
+
+/* 爱心特效 */
+#hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6b6b;
+    transform: rotate(45deg);
+    animation: float 3s ease-out forwards;
+    opacity: 0;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6b6b;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: -10px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(45deg) scale(0);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100px) rotate(45deg) scale(1);
+        opacity: 0;
+    }
+}
+
+/* 屏幕基础样式 */
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.9);
+}
+
+/* 开始界面 */
+#start-screen {
+    background-color: #fff;
+}
+
+.start-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.start-button {
+    position: absolute;
+    bottom: 100px;
+    padding: 15px 40px;
+    background-color: #ff6b6b;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(255, 107, 107, 0.3);
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.start-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(255, 107, 107, 0.5);
+    background-color: #ff5252;
+}
+
+/* 首页背景 */
+#home-screen {
+    background-color: #fce4ec;
+    background-image: radial-gradient(circle, #ffd1dc 20%, transparent 20%),
+                      radial-gradient(circle, #ffd1dc 20%, transparent 20%);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+}
+
+.home-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.home-title {
+    font-size: 36px;
+    color: #e91e63;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+}
+
+/* --- 新增的抽奖界面样式 --- */
+.lottery-info {
+    font-size: 24px;
+    color: #e91e63;
+    margin-bottom: 30px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+#remain-count {
+    color: #ff6b6b;
+    font-size: 32px;
+    margin: 0 5px;
+}
+
+.lottery-btn-container {
+    margin-top: 20px;
+}
+
+.draw-button {
+    padding: 20px 50px;
+    font-size: 28px;
+    background-color: #ff9800; /* 橙色盲盒风格按钮 */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #e65100, 0 15px 20px rgba(0,0,0,0.2); /* 3D按钮效果 */
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+.draw-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 #e65100, 0 8px 10px rgba(0,0,0,0.2);
+}
+
+/* 当机会用完时的按钮变灰样式 */
+.draw-button.disabled {
+    background-color: #ccc;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* 贺卡界面 */
+#card-screen {
+    background-color: #fff;
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.card-container {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#card-image {
+    max-width: 100%;
+    max-height: 60vh;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.card-note {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.card-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-button:nth-child(1) {
+    background-color: #4caf50;
+}
+
+.card-button:nth-child(2) {
+    background-color: #2196f3;
+}
+
+.card-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.card-button:nth-child(1):hover {
+    background-color: #45a049;
+}
+
+.card-button:nth-child(2):hover {
+    background-color: #1976d2;
+}
+
+/* 响应式适配手机 */
+@media (max-width: 768px) {
+    .home-title {
+        font-size: 28px;
+    }
+    .card-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card-button {
+        width: 200px;
+    }
+    .start-button {
+        font-size: 20px;
+        padding: 12px 30px;
+    }
+    .draw-button {
+        font-size: 22px;
+        padding: 15px 30px;
+    }
+    .lottery-info {
+        font-size: 18px;
+    }
+}
