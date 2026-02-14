@@ -280,3 +280,22 @@ body {
         font-size: 18px;
     }
 }
+
+/* --- 彩蛋按钮样式（红色） --- */
+.draw-button.surprise-btn {
+    background-color: #f44336; /* 红色背景 */
+    box-shadow: 0 8px 0 #c62828, 0 15px 20px rgba(0,0,0,0.2); /* 深红色阴影 */
+    animation: pulse 1.5s infinite; /* 加上一个轻微的呼吸闪烁特效暗示可以点 */
+}
+
+.draw-button.surprise-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 #c62828, 0 8px 10px rgba(0,0,0,0.2);
+}
+
+/* 按钮呼吸特效动画 */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
