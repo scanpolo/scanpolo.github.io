@@ -132,3 +132,29 @@ function downloadCard() {
     document.body.removeChild(link);
     alert('好运卡片已开始下载，请注意查收！');
 }
+
+// --- 新增：重置抽奖系统功能 ---
+function resetLottery() {
+    // 1. 将抽奖进度清零
+    drawIndex = 0; 
+    
+    // 2. 找到抽奖按钮，让它“满血复活”
+    const btn = document.getElementById('draw-btn');
+    if (btn) {
+        btn.textContent = "🎁 点击开启好运";
+        btn.classList.remove('disabled');      // 移除灰色禁用状态
+        btn.classList.remove('surprise-btn');  // 移除第3次抽完的红色状态
+        btn.onclick = drawCard;                // 重新把点击事件绑回去
+    }
+    
+    // 3. 更新界面的数字显示 (变成3次)
+    updateRemainCount();
+    
+    // 4. 用户体验优化：如果当前正在看贺卡，点重置后自动帮你退回首页并停掉音乐
+    const cardScreen = document.getElementById('card-screen');
+    if (!cardScreen.classList.contains('hidden')) {
+        stopAudio();
+        cardScreen.classList.add('hidden');
+        document.getElementById('home-screen').classList.remove('hidden');
+    }
+}

@@ -283,14 +283,21 @@ body {
 
 /* --- 彩蛋按钮样式（红色） --- */
 .draw-button.surprise-btn {
-    background-color: #f44336; /* 红色背景 */
-    box-shadow: 0 8px 0 #c62828, 0 15px 20px rgba(0,0,0,0.2); /* 深红色阴影 */
-    animation: pulse 1.5s infinite; /* 加上一个轻微的呼吸闪烁特效暗示可以点 */
+    padding: 20px 50px;
+    font-size: 28px;
+    background-color: #ff9800; /* 橙色盲盒风格按钮 */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #e65100, 0 15px 20px rgba(0,0,0,0.2); /* 3D按钮效果 */
+    transition: all 0.2s;
+    font-weight: bold;
 }
 
 .draw-button.surprise-btn:active {
     transform: translateY(4px);
-    box-shadow: 0 4px 0 #c62828, 0 8px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 0 #e65100, 0 8px 10px rgba(0,0,0,0.2);
 }
 
 /* 按钮呼吸特效动画 */
@@ -298,4 +305,44 @@ body {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
+}
+
+/* --- 新增：右下角重置按钮样式 --- */
+.reset-button {
+    position: fixed; /* 固定位置，页面怎么滑都在 */
+    bottom: 30px;    /* 距离底部30像素 */
+    right: 30px;     /* 距离右侧30像素 */
+    width: 50px;
+    height: 50px;
+    background-color: #ff9800; /* 与抽奖按钮一致的橙色 */
+    color: white;
+    border: none;
+    border-radius: 50%; /* 变成纯圆形 */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* 确保它永远在最上层，不被贺卡挡住 */
+    transition: all 0.3s ease;
+}
+
+/* 鼠标放上去时，图标会顺时针转半圈，手感更好 */
+.reset-button:hover {
+    background-color: #f57c00; /* 悬浮时颜色加深一点 */
+    transform: rotate(180deg) scale(1.1); 
+}
+
+.reset-button:active {
+    transform: scale(0.9);
+}
+
+/* 手机端稍微改小点并调整位置 */
+@media (max-width: 768px) {
+    .reset-button {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
 }
