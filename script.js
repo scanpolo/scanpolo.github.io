@@ -32,25 +32,25 @@ const normalChances = 3; // 表面上的常规抽奖次数
 // 加上第四个“隐藏款”贺卡
 const cardData = [
     {
-        image: '贺卡/贺卡1.jpg',
-        audio: '音频/贺卡1.mp3',
-        note: '这是你的第一份新年好运：由于十年这首歌的主题不太合适所以换成另外一个幸福摩天轮啦'
+        image: 'card/card1.png',
+        audio: 'audio/Lavender_Haze.m4a',
+        note: '抽中二等奖：蛋糕小狗！新年吃蛋糕哦'
     },
     {
-        image: '贺卡/贺卡2.jpg',
-        audio: '音频/贺卡2.mp3',
-        note: '这是你的第二份新年好运：『不知所谓』，也无所谓'
+        image: 'card/card2.png',
+        audio: 'audio/willow.m4a',
+        note: '抽中二等奖：红包小狗！新年接超多红包有钱钱'
     },
     {
-        image: '贺卡/贺卡3.jpg',
-        audio: '音频/贺卡3.mp3',
-        note: '这是你的第三份新年好运：『陪你度过漫长岁月』'
+        image: 'card/card3.png',
+        audio: 'audio/Mine.m4a',
+        note: '抽中一等奖！小狗在一起啦！'
     },
     {
         // 这是第4张隐藏彩蛋卡片（你需要确保文件夹里有这两个文件）
-        image: '贺卡/贺卡4.jpg', 
-        audio: '音频/贺卡4.mp3',
-        note: '🌟 隐藏惊喜！这才是真正的压轴好运！🌟'
+        image: 'card/card4.jpeg', 
+        audio: 'audio/Love_Story.m4a',
+        note: '🌟 隐藏奖！宝宝宝新年快乐捏！🌟'
     }
 ];
 
@@ -126,11 +126,11 @@ function downloadCard() {
     const cardImage = document.getElementById('card-image');
     const link = document.createElement('a');
     link.href = cardImage.src;
-    link.download = `新年好运卡_${drawIndex}.jpg`; 
+    link.download = `card_${drawIndex}.png`; 
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    alert('好运卡片已开始下载，请注意查收！');
+    alert('小狗到电脑上啦！');
 }
 
 // --- 新增：重置抽奖系统功能 ---
