@@ -48,7 +48,7 @@ const cardData = [
     },
     {
         // 这是第4张隐藏彩蛋卡片（你需要确保文件夹里有这两个文件）
-        image: 'card/card4.jpeg', 
+        image: 'card/card4.png', 
         audio: 'audio/Love_Story.m4a',
         note: '🌟 隐藏奖！宝宝宝新年快乐捏！🌟'
     }
