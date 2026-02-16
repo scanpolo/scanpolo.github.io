@@ -44,7 +44,7 @@ const cardData = [
     {
         image: 'card/card3.png',
         audio: 'audio/Mine.m4a',
-        note: '抽中一等奖！小狗在一起啦！'
+        note: '抽中一等奖！小狗在一起才是大奖！'
     },
     {
         // 这是第4张隐藏彩蛋卡片（你需要确保文件夹里有这两个文件）
